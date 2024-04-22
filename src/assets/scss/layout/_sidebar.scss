@@ -1,0 +1,121 @@
+.page-sidebar {
+  width: 290px;
+  display: flex;
+  flex-shrink: 0;
+  flex-direction: column;
+  top: 0;
+  position: sticky;
+  height: 100vh;
+  border-right: 1px solid rgba($color-black, 0.06);
+  background: linear-gradient(180deg, #F1EFEE 0%, #EBECF2 100%);
+  &-logo {
+    padding: 24px;
+    display: block;
+    transition: opacity $main-transition, transform $main-transition;
+    svg {
+      max-width: 170px;
+    }
+    &:hover {
+      opacity: .7;
+    }
+    &:active {
+      opacity: 1;
+      transform: scale(0.95);
+    }
+  }
+  &-content {
+    min-height: 0;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 32px 30px 50px;
+  }
+  &-nav {
+    flex-grow: 1;
+    overflow: auto;
+    padding-right: 10px;
+    margin-right: -10px;
+    margin-bottom: 30px;
+    @include scrollBar;
+    .nav {
+      &-item {
+        display: block;
+        margin-bottom: 10px;
+        position: relative;
+        fill: $color-gray-dark;
+        color: $color-gray-dark;
+        transition: color $main-transition, fill $main-transition;
+        &::before {
+          content: '';
+          top: 7px;
+          left: 20px;
+          right: 20px;
+          height: 100%;
+          opacity: 0;
+          z-index: 3;
+          filter: blur(5px);
+          position: absolute;
+          background-color: rgba(#F5DBD9, .7);
+          transition: opacity $main-transition;
+        }
+        &::after {
+          content: '';
+          width: 2px;
+          top: 13px;
+          bottom: 13px;
+          right: -1px;
+          opacity: 0;
+          z-index: 5;
+          position: absolute;
+          background-color: $color-main;
+          transition: opacity $main-transition;
+        }
+        &-content {
+          display: flex;
+          align-items: center;
+          padding: 10px;
+          border-radius: 5px;
+          z-index: 4;
+          position: relative;
+          transition: background-color $main-transition;
+        }
+        &:last-child {
+          margin-bottom: 0;
+        }
+        &:hover {
+          fill: $color-red;
+          color: $color-red;
+        }
+        &:active {
+          fill: $color-red-dark;
+          color: $color-red-dark;
+        }
+        &--active {
+          color: $color-main;
+          fill: $color-main;
+          .nav-item-content {
+            background-color: $color-white;
+          }
+          &::before {
+            opacity: 1;
+          }
+          &::after {
+            opacity: 1;
+          }
+        }
+        &-label {
+          flex-grow: 1;
+          font-size: 15px;
+          font-weight: 500;
+        }
+        &-icon {
+          flex-shrink: 0;
+          width: 24px;
+          height: 24px;
+          margin-right: 14px;
+          fill: inherit;
+        }
+      }
+    }
+  }
+}

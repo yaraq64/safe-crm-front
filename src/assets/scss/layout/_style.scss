@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+}
+html {
+  touch-action: manipulation;
+}
+body {
+  color: $color-main;
+  font-size: 16px;
+  line-height: 1.35;
+  font-family: $main;
+  font-weight: 400;
+  @include scrollBar;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+img {
+  max-width: 100%;
+  vertical-align: middle;
+}
+.deny-overflow {
+  overflow: hidden;
+  padding-right: 4px;
+}

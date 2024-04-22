@@ -1,0 +1,97 @@
+@import 'filters';
+
+.form {
+  &-field {
+    margin-bottom: 10px;
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  &-actions {
+    &--ot {
+      margin-top: 10px;
+    }
+  }
+  &-description {
+    display: flex;
+    font-size: 12px;
+    padding-top: 32px;
+    color: $color-gray-dark;
+    svg {
+      width: 16px;
+      height: 16px;
+      flex-shrink: 0;
+      margin-right: 7px;
+      fill: $color-gray-dark;
+    }
+  }
+  &-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    font-size: 12px;
+    margin-top: 30px;
+    a {
+      @include boldLink;
+      margin-bottom: 7px;
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+  &-select {
+    &-shape {
+      width: 9px;
+      height: 5px;
+      flex-shrink: 0;
+      margin-left: 9px;
+      stroke: $color-main;
+      transition: transform $main-transition;
+    }
+  }
+  &-filters {
+    display: flex;
+    margin: 0 -5px;
+    &-field {
+      padding: 0 5px;
+      margin-bottom: 10px;
+      &--long {
+        flex-grow: 1;
+      }
+      &--short {
+        flex-shrink: 0;
+        min-width: 260px;
+      }
+      .ui-input-content {
+        min-height: 56px;
+        padding-top: 19px;
+        padding-bottom: 19px;
+      }
+      &-content {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        min-height: 56px;
+        padding: 12px 20px;
+        border-radius: 6px;
+        border: solid 1px $color-gray;
+        .ui-checkbox {
+          &-label {
+            font-size: 14px;
+            font-weight: normal;
+          }
+          &-field {
+            width: 20px;
+            height: 20px;
+            margin-right: 15px;
+            svg {
+              width: 14px;
+              height: 10px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@mixin scrollBar {
+  @supports not selector(::-webkit-scrollbar) {
+    scrollbar-width: thin;
+    scrollbar-color: $color-gray-dark $color-gray;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+    background-color: rgba($color-gray-dark, 0.7);
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 20px;
+    -webkit-box-shadow: none;
+  }
+  &::-webkit-scrollbar {
+    width: 4px;
+    height: 8px;
+    background-color: $color-gray-medium;
+    border-radius: 20px;
+  }
+}
+
+@mixin regularLink {
+  cursor: pointer;
+  color: $color-red;
+  border-bottom: solid 1px rgba($color-red, 0.4);
+  transition: color $main-transition, border-color $main-transition;
+  &:hover {
+    color: $color-red-dark;
+    border-color: $color-red-dark;
+  }
+  &:active {
+    border-color: transparent;
+  }
+}
+
+@mixin boldLink {
+  cursor: pointer;
+  color: $color-red;
+  font-weight: 500;
+  transition: color $main-transition;
+  &:hover {
+    color: $color-main;
+  }
+  &:active {
+    color: $color-gray-dark;
+  }
+}
+
+@mixin inputField {
+  margin: 0;
+  width: 100%;
+  display: block;
+  font-size: 14px;
+  line-height: 1.15;
+  font-weight: bold;
+  padding: 12px 15px;
+  border-radius: 6px;
+  border: solid 1px $color-gray;
+  transition: color $main-transition, border-color $main-transition;
+  &--placeholder {
+    font-weight: normal;
+  }
+  &::placeholder {
+    opacity: 1;
+    font-weight: normal;
+  }
+  &:focus,
+  &:hover {
+    outline: none;
+    border-color: rgba($color-black, 0.4);
+  }
+}
+
+@mixin orderStates {
+  &-red {
+    background-color: rgba($color-red, 0.07);
+    &::before {
+      background-color: $color-red;
+    }
+  }
+  &-orange {
+    background-color: #fff3e5;
+    &::before {
+      background-color: #e47800;
+    }
+  }
+  &-green {
+    &::before {
+      background-color: #007f88;
+    }
+  }
+}
+
+@mixin orderTextStates {
+  &-red {
+    color: $color-red;
+  }
+  &-orange {
+    color: #e47800;
+  }
+}
